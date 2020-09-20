@@ -1,0 +1,24 @@
+
+
+.list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+.list li {
+    border: 1px solid #666;
+    cursor: pointer;
+    font-size: 1.1em;
+    background-color: #999;
+    color: #efefef;
+    min-width: 20px;
+}
+li.currentPage {
+    font-weight: bold;
+    color: #333;
+    border: 2px solid darkred;
+
+}
