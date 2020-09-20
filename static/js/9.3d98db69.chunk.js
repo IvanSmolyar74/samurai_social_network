@@ -1,0 +1,2 @@
+(this["webpackJsonpreact-course-you-tube"]=this["webpackJsonpreact-course-you-tube"]||[]).push([[9],{297:function(e,t,u){"use strict";u.r(t);var c=u(0),n=u.n(c);t.default=function(){return n.a.createElement("div",null,"Hello")}}}]);
+//# sourceMappingURL=9.3d98db69.chunk.js.map
