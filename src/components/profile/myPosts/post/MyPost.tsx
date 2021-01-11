@@ -1,14 +1,19 @@
 import React from "react";
 import s from './MyPost.module.css';
 
-const MyPost = (props) => {
+type PropsType = {
+    message: string
+    likes: number
+}
+
+const MyPost: React.FC<PropsType> = ({message, likes}) => {
     return (
 
         <div className={s.item}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg" alt=""/>
-            { props.message }
+            { message }
             <div>
-                <span className={s.like}>{ props.likes }</span>
+                <span className={s.like}>{ likes }</span>
             </div>
         </div>
 

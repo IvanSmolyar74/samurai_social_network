@@ -2,7 +2,13 @@ import React from "react";
 import s from './Header.module.css';
 import {NavLink} from "react-router-dom";
 
-const Header = ({isAuth, login, logout}) => {
+type PropsType = {
+    isAuth: boolean
+    login: number | null
+    logout: () => void
+}
+
+const Header: React.FC<PropsType> = ({isAuth, login, logout}) => {
     const handleClick = () => {
         logout()
     }

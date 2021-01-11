@@ -3,8 +3,15 @@ import styles from './ProfileInfo.module.css';
 import photo from "../../../assets/image/avatar.jpg"
 import Status from './Status';
 import Preloader from "../../commons/Preloader/Preloader";
+import { ProfileType } from '../../../types/types'
 
-const ProfileInfo = React.memo( ({profile, status, updateUserStatus}) => {
+type PropsType = {
+    profile: ProfileType | null
+    newStatus: string
+    updateUserStatus: (newStatus: string) => void
+}
+
+const ProfileInfo: React.FC<PropsType> = React.memo( ({profile, newStatus, updateUserStatus}) => {
     if (!profile) return <Preloader />
     return (
         <div>
@@ -16,8 +23,8 @@ const ProfileInfo = React.memo( ({profile, status, updateUserStatus}) => {
                 <div className={styles.userAvatar}>
                     <img src={profile.photos.large || photo} alt="User avatar"/>
                 </div>
-                <p>{profile.lookingForAJobDescription}</p>
-                <Status status={status} updateUserStatus={updateUserStatus}/>
+                <p>{profile.lookinForAJobDescription}</p>
+                <Status newStatus={newStatus} updateUserStatus={updateUserStatus}/>
             </div>
         </div>
     )

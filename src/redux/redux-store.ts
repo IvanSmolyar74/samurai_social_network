@@ -9,7 +9,7 @@ import { reducer as formReducer } from 'redux-form';
 import initializedAppReducer from "./authApp-reducer";
 import {composeWithDevTools} from 'redux-devtools-extension';
 
-let reducers = combineReducers({
+let rootReducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebarPage: sidebarReducer,
@@ -19,6 +19,8 @@ let reducers = combineReducers({
     app: initializedAppReducer
 });
 
-let store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleWare)));
-window.store = store;
+type RootRedusersType = typeof rootReducers
+export type AppStateType = ReturnType<RootRedusersType>
+
+let store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunkMiddleWare)));
 export default store;

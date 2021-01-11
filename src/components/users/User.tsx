@@ -4,8 +4,16 @@ import userPhoto from "../../assets/image/avatar.jpg";
 import React from "react";
 import {compose} from "redux";
 import withPreloader from "../../HOC/withPreloader";
+import { UsersType } from "../../types/types";
 
-const User = ({user, isFollowingProgress, unfollow, follow}) => {
+type PropsType = {
+    user: UsersType
+    isFollowingProgress: Array<number>
+    follow: (id: number) => void
+    unfollow: (id: number) => void
+}
+
+const User: React.FC<PropsType> = ({user, isFollowingProgress, unfollow, follow}) => {
     return (<div className={styles.userItem}>
         <div className={styles.userAva}>
                         <div>

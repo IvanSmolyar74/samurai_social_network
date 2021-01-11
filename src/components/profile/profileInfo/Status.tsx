@@ -1,9 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 
-const Status = (props) => {
+type PropsType = {
+    newStatus: string
+    updateUserStatus: (newStatus: string) => void
+}
+
+const Status: React.FC<PropsType> = ({newStatus, updateUserStatus}) => {
 
     const [editMode, setEditMode] = useState(false),
-        [status, setStatus] = useState(props.status);
+        [status, setStatus] = useState(newStatus);
 
     function activatedEditMode() {
         setEditMode(true)
@@ -11,23 +16,23 @@ const Status = (props) => {
 
     function deactivatedEditMode() {
         setEditMode(false)
-        props.updateUserStatus(status);
+        updateUserStatus(status);
     }
 
-    function changeStatus(e) {
+    function changeStatus(e: ChangeEvent<HTMLInputElement>) {
         setStatus( e.currentTarget.value )
     }
 
     useEffect(() => {
-        setStatus(props.status)
-    }, [props.status])
+        setStatus(newStatus)
+    }, [newStatus])
 
 
     return (
         <div>
             {!editMode &&
             <div>
-                <span onDoubleClick={activatedEditMode}>{props.status}</span>
+                <span onDoubleClick={activatedEditMode}>{newStatus}</span>
             </div>
             }
             {editMode &&
